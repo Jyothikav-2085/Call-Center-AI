@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify
 import base64
 import whisper
+import os
 
 # Load Whisper model
 model_whisper = whisper.load_model("base")
 
 app = Flask(__name__)
 
-API_KEY = "mysecretkey"
+API_KEY = os.getenv("API_KEY")
 
 
 @app.route('/')
